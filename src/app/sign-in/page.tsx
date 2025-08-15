@@ -1,7 +1,12 @@
 "use client";
 export default function SignInPage() {
   const handleSignIn = (e: React.FormEvent<HTMLFormElement>) => {
-    console.log("E: ", e);
+    e.preventDefault();
+    const form = e.currentTarget;
+    const username = form.username.value;
+    const password = form.password.value;
+    console.log("E: ", username);
+    console.log("P", password);
   };
   return (
     <div className="flex justify-center items-center min-h-screen ">
@@ -14,6 +19,7 @@ export default function SignInPage() {
             </label>
             <input
               type="text"
+              name="username"
               placeholder="email"
               className="mb-4 p-2 rounded border w-full text-lg"
             />
@@ -23,6 +29,7 @@ export default function SignInPage() {
             </label>
             <input
               type="text"
+              name="password"
               placeholder="password"
               className="mb-6 p-2 rounded border w-full text-lg"
             />
